@@ -1,4 +1,4 @@
-# Linkific — Python Full Stack Developer Internship
+# Linkific — Python Full Stack Developer Intern
 
 **Day 1: Development Environment Setup & Full Stack Fundamentals**
 
