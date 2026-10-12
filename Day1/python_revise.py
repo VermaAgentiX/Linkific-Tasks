@@ -9,4 +9,4 @@ class Employee:
 
 
 emp = Employee("Abhishek", "Python Developer Intern")
-emp.display()
+emp.display() 
