@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="An interactive practice page for JavaScript fundamentals, DOM manipulation, and DSA."
+    >
+    <title>DevSpace | Linkific Day 3</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="#" aria-label="DevSpace home">DevSpace<span>.</span></a>
+
+        <button
+            id="menuBtn"
+            class="menu-button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav"
+        >
+            <span aria-hidden="true">☰</span> Menu
+        </button>
+
+        <nav id="nav" class="site-nav" aria-label="Main navigation">
+            <a href="#demos">Interactive demos</a>
+            <a href="#tasks">Day 3 checklist</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">LINKIFIC INTERNSHIP · DAY 3</p>
+            <h1>Learn JavaScript by <span>building things.</span></h1>
+            <p class="hero-copy">
+                A hands-on practice page for JavaScript fundamentals, DOM manipulation,
+                event handling, and beginner-friendly coding challenges.
+            </p>
+            <a class="button" href="#demos">Explore the demos</a>
+        </section>
+
+        <section id="demos" class="section">
+            <div class="section-heading">
+                <p class="eyebrow">PRACTICE AREA</p>
+                <h2>Interactive JavaScript demos</h2>
+                <p>Try each activity and observe how JavaScript responds to your actions.</p>
+            </div>
+
+            <div class="demo-grid">
+                <article class="demo-card">
+                    <h3>DOM manipulation</h3>
+                    <p id="msg" aria-live="polite">Click the button to update this message.</p>
+                    <div class="button-row">
+                        <button id="change" class="button" type="button">Change message</button>
+                        <button id="add" class="button button-secondary" type="button">Add a note</button>
+                    </div>
+                    <ul id="notes" class="notes-list" aria-label="Added notes"></ul>
+                </article>
+
+                <article class="demo-card">
+                    <h3>Event handling</h3>
+                    <p>Enter your name and let JavaScript greet you.</p>
+                    <label for="name">Your name</label>
+                    <input id="name" type="text" placeholder="e.g. Alex" autocomplete="given-name">
+                    <button id="greet" class="button" type="button">Greet me</button>
+                    <p id="greeting" class="result" aria-live="polite"></p>
+                </article>
+
+                <article class="demo-card">
+                    <h3>Factorial calculator</h3>
+                    <p>Calculate the factorial of a non-negative integer.</p>
+                    <label for="factN">Number (0–170)</label>
+                    <input id="factN" type="number" min="0" max="170" step="1" value="5">
+                    <button id="factBtn" class="button" type="button">Calculate factorial</button>
+                    <p id="factOut" class="result" aria-live="polite"></p>
+                </article>
+
+                <article class="demo-card">
+                    <h3>Fibonacci series</h3>
+                    <p>Generate a sequence in which each term is the sum of the previous two.</p>
+                    <label for="fibN">Number of terms (1–40)</label>
+                    <input id="fibN" type="number" min="1" max="40" step="1" value="8">
+                    <button id="fibBtn" class="button" type="button">Generate series</button>
+                    <p id="fibOut" class="result" aria-live="polite"></p>
+                </article>
+
+                <article class="demo-card">
+                    <h3>Find duplicate values</h3>
+                    <p class="example-array">Example array: <code>[1, 2, 3, 2, 4, 5, 1]</code></p>
+                    <button id="dupBtn" class="button" type="button">Find duplicates</button>
+                    <p id="dupOut" class="result" aria-live="polite"></p>
+                </article>
+
+                <article class="demo-card">
+                    <h3>Understanding variables</h3>
+                    <p>
+                        Use <code>const</code> by default, <code>let</code> when reassignment is needed,
+                        and avoid <code>var</code> in most modern JavaScript.
+                    </p>
+                    <button id="varBtn" class="button button-secondary" type="button">Show example</button>
+                    <p id="varOut" class="result" aria-live="polite"></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="tasks" class="section task-section">
+            <div class="section-heading">
+                <p class="eyebrow">DAILY PROGRESS</p>
+                <h2>Day 3 task checklist</h2>
+                <p>Select a task when you have finished it. Your progress updates automatically.</p>
+            </div>
+            <ul id="taskList" class="task-list"></ul>
+            <p id="progress" class="progress-text" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Built as part of Linkific internship practice · <span id="year"></span></p>
+    </footer>
+</body>
+</html>
