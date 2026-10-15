@@ -1,4 +1,4 @@
-# Student Management CLI
+# Student Management using Python
 
 A command-line student management application built with Python and JSON file storage. Records persist after the application closes.
 
