@@ -1,4 +1,4 @@
-# Nova — React Landing Page
+# React Landing Page
 
 A responsive, component-based landing page created as a React Fundamentals practice project.
 
