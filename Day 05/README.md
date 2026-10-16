@@ -1,4 +1,4 @@
-# Linkific Internship — Day 5: React Fundamentals
+Day 5: React Fundamentals and Python DSA
 
 ## Objective
 Learn React fundamentals and build a responsive landing page using React and Vite.
