@@ -1,4 +1,4 @@
-# Student Record Manager —  Day 7
+# Student Record Manager uisng FastAPI & React —  Day 7
 
 A full-stack student CRUD application built by extending the Day 6 FastAPI fundamentals project. The React frontend uses reusable components and Tailwind CSS.
 
