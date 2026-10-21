@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6 | FastAPI Project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8fafc;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 90px 8%;
+            min-height: 480px;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 8px 8px 0;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            border: 1px solid #cbd5e1;
+            color: #172033;
+            background: white;
+        }
+
+        .code-card {
+            width: 420px;
+            max-width: 100%;
+            background: #111827;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 20px 45px #0f172a20;
+            overflow-wrap: anywhere;
+        }
+
+        .code-header {
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .code-card pre {
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .keyword {
+            color: #c084fc;
+        }
+
+        .string {
+            color: #86efac;
+        }
+
+        section {
+            padding: 65px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 28px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .api-list {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .api-row {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .api-row:last-child {
+            border-bottom: none;
+        }
+
+        .method {
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            min-width: 58px;
+            text-align: center;
+        }
+
+        .get {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .post {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .api-row code {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .api-description {
+            color: #64748b;
+            margin-left: auto;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .cta {
+            text-align: center;
+            background: #eff6ff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 800px) {
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 60px;
+            }
+
+            .code-card {
+                width: 100%;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+
+            .api-description {
+                display: none;
+            }
+        }
+
+        @media (max-width: 450px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 10px;
+            }
+
+            .api-row {
+                gap: 12px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Day 6 - FastApi basics, Abhishek Verma</div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="#about">About</a>
+            <a href="#features">Features</a>
+            <a href="#api">API</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="tag">Testing · DAY 6</span>
+
+                <h1>Build. Learn.<br><span>Connect.</span></h1>
+
+                <p>
+                    Explore the world of FastAPI with a simple student
+                    management project. Learn API fundamentals, handle
+                    requests, and build your backend development skills.
+                </p>
+
+                <a href="#api" class="btn btn-primary">
+                    Explore API →
+                </a>
+
+                <a href="/docs" class="btn btn-secondary">
+                    View Documentation
+                </a>
+            </div>
+
+            <div class="code-card">
+                <div class="code-header">
+                    ● &nbsp; ● &nbsp; ●
+                    &nbsp;&nbsp;&nbsp; main.py
+                </div>
+
+                <pre><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI
+
+app = FastAPI()
+
+@app.get(<span class="string">"/"</span>)
+<span class="keyword">def</span> home():
+    <span class="keyword">return</span> {
+        <span class="string">"message"</span>:
+        <span class="string">"Hello, FastAPI!"</span>
+    }
+
+@app.get(<span class="string">"/students"</span>)
+<span class="keyword">def</span> get_students():
+    <span class="keyword">return</span> students</pre>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2 class="section-title">What You Can Do</h2>
+            <p class="section-subtitle">
+                Simple features to explore backend development.
+            </p>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Student Management</h3>
+                    <p>
+                        Create student records and retrieve student
+                        information using REST API endpoints.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>FastAPI Fundamentals</h3>
+                    <p>
+                        Learn GET and POST requests, query parameters,
+                        request bodies, and data validation.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔎</div>
+                    <h3>Quick Search</h3>
+                    <p>
+                        Explore how query parameters work when searching
+                        for student information by name and age.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="api">
+            <h2 class="section-title">API Endpoints</h2>
+            <p class="section-subtitle">
+                Explore the routes available in this project.
+            </p>
+
+            <div class="api-list">
+                <div class="api-row">
+                    <span class="method get">GET</span>
+                    <code>/</code>
+                    <span class="api-description">Welcome message</span>
+                </div>
+
+                <div class="api-row">
+                    <span class="method get">GET</span>
+                    <code>/about</code>
+                    <span class="api-description">Project details</span>
+                </div>
+
+                <div class="api-row">
+                    <span class="method get">GET</span>
+                    <code>/students</code>
+                    <span class="api-description">List students</span>
+                </div>
+
+                <div class="api-row">
+                    <span class="method post">POST</span>
+                    <code>/students</code>
+                    <span class="api-description">Create a student</span>
+                </div>
+
+                <div class="api-row">
+                    <span class="method get">GET</span>
+                    <code>/search?name=Alex&amp;age=20</code>
+                    <span class="api-description">Search parameters demo</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="about">
+            <h2 class="section-title">Ready to Explore?</h2>
+            <p class="section-subtitle">
+                Test your endpoints and see your API in action.
+            </p>
+
+            <a href="/docs" class="btn btn-primary">
+                Open Interactive API Docs →
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Linkific Day 6 · Built with FastAPI
+    </footer>
+
+</body>
+</html>
