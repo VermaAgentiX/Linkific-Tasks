@@ -1,110 +1,99 @@
-# Linkific Internship — Day 6: FastAPI Fundamentals
+# Student Record Manager —  Day 7
 
-A beginner-friendly REST API built with **FastAPI** and **Pydantic** to practice backend fundamentals, HTTP methods, JSON request bodies, validation, and Postman testing.
+A full-stack student CRUD application built by extending the Day 6 FastAPI fundamentals project. The React frontend uses reusable components and Tailwind CSS.
 
 ## Features
+- Create, read, update and delete student records
+- Search by student ID, name, course or email
+- Pydantic request validation and useful HTTP errors
+- Responsive dashboard, summary cards and reusable React components
+- FastAPI interactive API docs at `/docs`
+- React state and effects with `useState` and `useEffect`
 
-- `GET /` — return a welcome message
-- `GET /students` — return all student records
-- `GET /students/{student_id}` — return one student by ID
-- `POST /students` — create a student with request validation
-- Interactive API documentation at `/docs`
+## Tech stack
+- Python, FastAPI, Pydantic, Uvicorn
+- React, Vite, JavaScript
+- Tailwind CSS, Lucide React
+- REST API / JSON / Fetch API
 
-## Tech Stack
-
-- Python
-- FastAPI
-- Pydantic
-- Postman
-
-## Project Structure
-
+## Project structure
 ```text
-day6_fastapi/
-├── main.py
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── postman_collection.json
+Student-Record-Manager-Day7-Day8/
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── .gitignore
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── Content.jsx
+│   │   │   ├── StudentForm.jsx
+│   │   │   └── StudentTable.jsx
+│   │   ├── api.js
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   └── postcss.config.js
+└── README.md
 ```
 
-## Setup and Run
+## Run locally
 
-### 1. Create and activate a virtual environment
-
-Windows PowerShell:
-
+### 1. Start FastAPI (terminal 1)
 ```powershell
+cd backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-```
-
-### 2. Install dependencies
-
-```powershell
 python -m pip install -r requirements.txt
+uvicorn main:app --reload
 ```
+API: `http://127.0.0.1:8000`  
+Swagger docs: `http://127.0.0.1:8000/docs`
 
-### 3. Start the development server
-
+### 2. Start React (terminal 2)
 ```powershell
-fastapi dev main.py
+cd frontend
+npm install
+npm run dev
 ```
+Open the Vite URL shown in the terminal, normally `http://localhost:5173`.
 
-The API should be available at `http://127.0.0.1:8000`.
-
-Open `http://127.0.0.1:8000/docs` to explore and test the endpoints in the browser.
-
-## API Endpoints
-
-| Method | Endpoint | Description |
+## API endpoints
+| Method | Endpoint | Purpose |
 |---|---|---|
-| GET | `/` | Welcome message |
+| GET | `/` | API information |
+| GET | `/health` | Health check |
 | GET | `/students` | List all students |
-| GET | `/students/{student_id}` | Get a student by ID |
-| POST | `/students` | Create a student |
+| GET | `/students?q=aditi` | Search student records |
+| GET | `/students/{student_id}` | Retrieve one record |
+| POST | `/students` | Create a record |
+| PUT | `/students/{student_id}` | Update a record |
+| DELETE | `/students/{student_id}` | Delete a record |
 
-### Example POST request body
-
-Send this JSON to `POST /students`:
-
+### Example JSON body
 ```json
 {
-  "name": "Abhishek",
-  "age": 23,
-  "course": "Computer Science"
+  "name": "Aditi Sharma",
+  "age": 21,
+  "course": "Computer Science",
+  "email": "aditi@example.com"
 }
 ```
 
-A successful create request returns **201 Created**.
+## Notes
+This learning version stores records in a Python list in memory. Records reset when the backend restarts. A database such as SQLite can be added later. Configure `VITE_API_URL` if the backend is hosted elsewhere.
 
-## Test with Postman
-
-1. Open Postman and select **Import**.
-2. Import `postman_collection.json`.
-3. Ensure the FastAPI server is running.
-4. Test **Home**, **Get All Students**, **Create Student**, and **Get Student by ID**.
-5. For the POST request, select **Body → raw → JSON** and use the sample body above.
-
-The collection uses `http://127.0.0.1:8000` as its base URL.
-
-## Concepts Practiced
-
-- REST API fundamentals and client-server communication
-- Routes, path parameters, and query parameters
-- HTTP methods: GET, POST, PUT, PATCH, DELETE
-- JSON request and response bodies
-- Pydantic models and input validation
-- Postman request testing and HTTP status codes
-- Python list reversal and maximum value
-- Merging sorted arrays with two pointers
-- Removing duplicates while preserving order
-- JavaScript Fetch API, `async/await`, and `response.ok`
-
-## Limitations
-
-Student records are stored in a Python list in memory. They are not persisted to a database and will reset when the server restarts. This project is for learning and demonstration, not production use.
-
-## Learning Outcome
-
-Built and tested a small FastAPI backend, practiced request validation and HTTP methods, and reviewed how frontend JavaScript can communicate with backend APIs.
+## Week 1 learning outcomes
+- FastAPI routes, HTTP methods, request bodies, validation and status codes
+- CRUD operations and searching a Python list
+- React components, props, state, event handlers and effects
+- Frontend/backend communication using `fetch`
+- Tailwind utility classes and responsive layout
+- Project structure and GitHub documentation
