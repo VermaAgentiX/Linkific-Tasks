@@ -1,4 +1,4 @@
-# Student Record Manager — Linkific Day 7 & Day 8
+# Student Record Manager — Linkific Updated Day 7 & Day 8
 
 A full-stack student CRUD application built by extending the Day 6 FastAPI fundamentals project. The React frontend uses reusable components and Tailwind CSS.
 
