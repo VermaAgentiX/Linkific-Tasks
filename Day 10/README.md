@@ -1,4 +1,4 @@
-# Student Record Manager - CRUD Updation using FASTAPI
+# Student Record Manager Updations- Added CRUD Operations using FASTAPI
 
 A beginner-friendly full-stack student management application built with React, React Router, and FastAPI. This version keeps the code organized into small files with descriptive names and comments where they help explain the intent.
 
