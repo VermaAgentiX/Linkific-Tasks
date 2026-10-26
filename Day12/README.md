@@ -1,4 +1,4 @@
-# Student Record Manager
+# Day12 - Student Record Manager Updated endpoints and FastApi connections 
 
 A full-stack student management application built with **React**,
 **React Router**, and **FastAPI**. The application demonstrates
