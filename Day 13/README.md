@@ -1,4 +1,4 @@
-# Student Record Manager
+# Day 13 -  Student Record Manager [Added JWT for user registration and authentication] 
 
 A full-stack student management application built with **React**, **React Router**, and **FastAPI**. Day 13 adds a learning implementation of **JWT authentication**, password hashing, account registration, login, and protected routes/API endpoints.
 
