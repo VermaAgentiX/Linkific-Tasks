@@ -1,4 +1,4 @@
-# Student Record Manager — Day 14 Weekly Assessment
+# Day 14 - Student Record Manager improovments and Postgre connection, Weekly Assessment
 
 A full-stack Student Record Manager built with React and FastAPI, featuring user authentication, protected routes, student CRUD operations, search, and database integration.
 
