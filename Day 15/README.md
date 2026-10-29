@@ -1,4 +1,4 @@
-# Student Record Manager — Day 15: Authentication & Authorization
+# Day 15 - Student Record Manager, Added User and Admin based Authentication & Authorization
 
 A React + FastAPI student-record application enhanced with JWT authentication, logout, protected routes, protected APIs, and basic Admin/User role-based access control (RBAC).
 
