@@ -1,0 +1,44 @@
+Student Record Manager Day 14 — Missing Backend Files
+
+This package restores ONLY:
+  database.py
+  models.py
+  schemas.py
+
+It intentionally does not include or overwrite main.py, the React frontend,
+requirements.txt, .env, or .gitignore.
+
+Why these files match:
+- The Day 14 main.py in the archived project imports:
+  from database import Base, engine, get_db
+  from models import Student, User
+  from schemas import LoginInput, RegisterInput, StudentInput,
+      StudentResponse, TokenResponse, UserPublic
+- These modules preserve those exact names and fields.
+- Student records have owner_id linked to users.id for account-scoped CRUD.
+- Password storage uses the hashed_password field; hashing and JWT handling
+  remain in main.py using pwdlib and PyJWT.
+
+Install instructions:
+1. Close the FastAPI server if it is running.
+2. Extract these three .py files into your existing backend folder.
+3. Do not replace your current main.py.
+4. Check requirements.txt includes SQLAlchemy, psycopg[binary],
+   python-dotenv, pydantic, email-validator, FastAPI, PyJWT, and pwdlib[argon2].
+5. Ensure backend/.env has DATABASE_URL configured for your PostgreSQL database.
+6. From the backend folder, activate your virtual environment and run:
+   python -m pip install -r requirements.txt
+   python -m py_compile main.py database.py models.py schemas.py
+   uvicorn main:app --reload
+
+Expected PostgreSQL URL format:
+DATABASE_URL=postgresql+psycopg://postgres:URL_ENCODED_PASSWORD@localhost:5432/student_record_manager
+
+If your password contains URL-reserved characters (such as @, :, /, #, or %),
+URL-encode the password part before putting it in DATABASE_URL. Never share
+the real .env file or commit it to GitHub.
+
+The archived Day 14 main.py calls Base.metadata.create_all(bind=engine) on
+startup, so tables are created automatically for this learning project.
+This does not migrate or repair pre-existing tables. Use migrations for schema
+changes in a production application.
