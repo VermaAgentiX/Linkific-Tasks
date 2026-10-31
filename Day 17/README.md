@@ -1,4 +1,4 @@
-# Day 17 -- Testing & Debugging
+# Day 17 -- Testing & Debugging Using Postman
 
 ## Student Record Manager
 
