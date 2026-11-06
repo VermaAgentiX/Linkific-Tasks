@@ -1,0 +1,14 @@
+spend,for,item,to,reciepent,in,datetime,curr_income
+5000, ,check, ,abc, ,19/12/2024 10:10PM,7000
+5000, ,check, ,abc, ,19/12/2024 10:10PM,2000
+1200, ,tip, ,employee, ,19/12/2024 10:11PM,800
+1200, ,tip, ,employee, ,19/12/2024 10:11PM,-400
+1200, ,tip, ,employee, ,19/12/2024 10:11PM,-1600
+42000, ,for stock, ,orderin, ,19/12/2024 10:11PM,-43600
+42000, ,for stock, ,orderin, ,19/12/2024 10:11PM,-85600
+42000, ,for stock, ,orderin, ,19/12/2024 10:11PM,-127600
+42000, ,for stock, ,orderin, ,19/12/2024 10:11PM,-169600
+1200, ,eas, ,asda, ,21/12/2024 11:10AM,187800
+1200, ,eas, ,asda, ,21/12/2024 11:10AM,186600
+1200, ,eas, ,asda, ,21/12/2024 11:10AM,185400
+1200, ,eas, ,asda, ,21/12/2024 11:10AM,184200

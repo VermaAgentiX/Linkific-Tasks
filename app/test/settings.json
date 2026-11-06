@@ -1,0 +1,17 @@
+{
+    "admin_name": "",
+    "gmail": "",
+    "contact_no": "",
+    "company_name": "",
+    "shop_name": "",
+    "current_income": "0",
+    "total_spends": "0",
+    "monthly_income": "0",
+    "previous_note": "",
+    "total_gains": "0",
+    "screen_width": 1500,
+    "screen_height": 850,
+    "others_show": true,
+    "others_hide": false,
+    "theme": "dark"
+}

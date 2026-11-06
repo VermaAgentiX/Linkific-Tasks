@@ -1,0 +1,99 @@
+Stock,Item Name,Rate (in Rs),Quantity
+Cars,Apple,129.5,20
+Food,Tablet,459.75,25
+Stationery,Notebook,65.99,40
+Stationery,Scissors,75.25,30
+Furniture,Chair,799.99,7
+Furniture,Table,1799.5,20
+Furniture,Pillow,499.0,30
+Furniture,Cushion,299.0,35
+Furniture,Blanket,1200.0,10
+Furniture,Mattress,8999.99,2
+Furniture,Lamp,799.0,20
+Electronics,Laptop,54999.99,5
+Electronics,Phone,24999.5,3
+Electronics,Headphones,799.99,8
+Electronics,Keyboard,1200.5,25
+Electronics,Mouse,350.75,22
+Electronics,Monitor,12999.0,6
+Electronics,Camera,14999.75,2
+Electronics,Printer,4999.5,18
+Electronics,Charger,599.99,50
+Electronics,TV,35999.99,4
+Electronics,Speakers,749.0,30
+Electronics,Flash Drive,999.99,45
+Electronics,External Hard Drive,4899.99,10
+Clothing,Shoes,1499.99,15
+Clothing,Gloves,299.99,50
+Clothing,Sunglasses,599.99,25
+Clothing,Shirt,799.0,27
+Clothing,Jacket,1999.99,12
+Clothing,Socks,99.99,50
+Clothing,T-shirt,499.99,30
+Clothing,Hat,799.99,20
+Clothing,Shoes,1599.99,15
+Clothing,Belt,499.0,22
+Accessories,Watch,1599.99,10
+Accessories,Smartwatch,2999.99,13
+Accessories,Phone Case,599.99,35
+Accessories,Backpack,1299.99,9
+Books,Book,199.99,30
+Personal Care,Deodorant,199.99,45
+Personal Care,Shaving Kit,799.0,30
+Personal Care,Toothbrush,99.99,50
+Personal Care,Toothpaste,150.99,22
+Personal Care,Shaving Cream,399.0,20
+Personal Care,Perfume,2499.99,10
+Personal Care,Hand Cream,499.99,30
+Personal Care,Face Wash,799.0,15
+Personal Care,Hair Oil,150.0,40
+Personal Care,Conditioner,299.99,35
+Personal Care,Hairbrush,499.99,25
+Personal Care,Body Lotion,599.99,50
+Personal Care,Body Wash,349.99,30
+Personal Care,Shaving Razor,149.99,40
+Personal Care,Hand Wash,250.0,30
+Personal Care,Face Mask,129.99,35
+Personal Care,Facial Cream,699.99,15
+Personal Care,Moisturizer,599.5,25
+Pharmaceuticals,Paracetamol,25.5,100
+Pharmaceuticals,Aspirin,15.75,150
+Pharmaceuticals,Ibuprofen,30.0,120
+Pharmaceuticals,Amoxicillin,150.0,60
+Pharmaceuticals,Cough Syrup,99.99,80
+Pharmaceuticals,Antiseptic Cream,50.0,200
+Pharmaceuticals,Antibiotics,200.5,40
+Pharmaceuticals,Insulin,1200.0,15
+Pharmaceuticals,Vitamins,250.0,50
+Pharmaceuticals,Calcium Tablets,100.0,75
+Pharmaceuticals,Folic Acid,60.5,100
+Pharmaceuticals,Antihistamine,90.0,50
+Pharmaceuticals,Eye Drops,40.0,150
+Pharmaceuticals,Laxatives,120.0,60
+Pharmaceuticals,Antacid,30.0,110
+Pharmaceuticals,Saline Solution,20.0,100
+Pharmaceuticals,Glucose,35.0,120
+Pharmaceuticals,Hand Sanitizer,60.0,200
+Pharmaceuticals,Herbal Tea,150.0,80
+Pharmaceuticals,Chronic Pain Relief,250.0,30
+Organic Farming,Organic Fertilizer,700.0,50
+Organic Farming,Organic Seeds,200.0,150
+Organic Farming,Hydroponic Nutrients,500.0,20
+Organic Farming,Organic Pesticide,350.0,40
+Organic Farming,Plant Growth Promoter,250.0,75
+Organic Farming,Earthworm Castings,300.0,60
+Organic Farming,Green Manure,200.0,80
+Organic Farming,Bio-fungicides,400.0,50
+Organic Farming,Soil Testing Kit,1000.0,15
+Organic Farming,Drip Irrigation System,2000.0,5
+Organic Farming,Greenhouse Equipment,5000.0,3
+Organic Farming,Organic Herbicide,250.0,30
+Organic Farming,Organic Mulch,150.0,100
+Organic Farming,Organic Insecticide,180.0,60
+Organic Farming,Compost Tea,120.0,80
+Organic Farming,Planting Pots,80.0,120
+Organic Farming,Greenhouse Plastic,1000.0,20
+Organic Farming,Microbial Inoculants,350.0,40
+Organic Farming,Soil Enzymes,500.0,10
+Organic Farming,Watering Can,150.0,150
+Organic Farming,Drip Lines,200.0,80

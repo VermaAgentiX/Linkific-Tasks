@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>840</width>
+    <height>395</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>375</width>
+    <height>395</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>840</width>
+    <height>395</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_company_name">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>102</y>
+     <width>411</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(83, 248, 195);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>pvt ltd...</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_image">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>40</y>
+     <width>840</width>
+     <height>356</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>back5.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_profile">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>75</y>
+     <width>111</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>pprofile2.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_trans">
+   <property name="geometry">
+    <rect>
+     <x>377</x>
+     <y>71</y>
+     <width>424</width>
+     <height>267</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(31, 31, 31,0.8);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_monthly_income">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>230</y>
+     <width>411</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::StrongFocus</enum>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(255, 170, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>monthly/-</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>386</x>
+     <y>195</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Monthly Income:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>387</x>
+     <y>258</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Current Income:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_current_income">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>290</y>
+     <width>411</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::StrongFocus</enum>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(255, 170, 0);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>current/-</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_Create">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>352</y>
+     <width>111</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(98, 255, 156);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Create</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>840</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(50, 50, 50);</string>
+   </property>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>3</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(83, 255, 206);</string>
+    </property>
+    <property name="text">
+     <string>Finance Flow v1.1</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_show_name">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>166</y>
+     <width>411</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::FocusPolicy::StrongFocus</enum>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(83, 248, 195);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>ex- groccery store</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>385</x>
+     <y>133</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Shop Name:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>383</x>
+     <y>67</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Company Name:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_contact_no">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>343</y>
+     <width>334</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(83, 248, 195);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>+91</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>23</x>
+     <y>308</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Contact No:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>22</x>
+     <y>246</y>
+     <width>161</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Gmail</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_gmail">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>279</y>
+     <width>334</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(83, 248, 195);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>abc@gmail.com</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Admin Name:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_admin_name">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>215</y>
+     <width>334</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1920</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(49, 49, 49);
+alternate-background-color: rgb(225, 225, 225);
+selection-background-color: rgb(137, 143, 255);
+selection-color: rgb(0, 0, 0);
+color: rgb(83, 248, 195);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="maxLength">
+    <number>1000</number>
+   </property>
+   <property name="frame">
+    <bool>false</bool>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::EchoMode::Normal</enum>
+   </property>
+   <property name="cursorPosition">
+    <number>0</number>
+   </property>
+   <property name="dragEnabled">
+    <bool>true</bool>
+   </property>
+   <property name="placeholderText">
+    <string>admin...</string>
+   </property>
+   <property name="cursorMoveStyle">
+    <enum>Qt::CursorMoveStyle::LogicalMoveStyle</enum>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_contact_no">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>47</y>
+     <width>361</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(31, 31, 31, 0.9);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_set_image">
+   <property name="geometry">
+    <rect>
+     <x>324</x>
+     <y>180</y>
+     <width>26</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(137, 143, 255);
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>...</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(83, 255, 206);</string>
+   </property>
+   <property name="text">
+    <string>Create the Company</string>
+   </property>
+  </widget>
+  <zorder>widget</zorder>
+  <zorder>label_image</zorder>
+  <zorder>label_trans</zorder>
+  <zorder>lineEdit_company_name</zorder>
+  <zorder>lineEdit_monthly_income</zorder>
+  <zorder>label_13</zorder>
+  <zorder>label_14</zorder>
+  <zorder>lineEdit_current_income</zorder>
+  <zorder>toolButton_Create</zorder>
+  <zorder>lineEdit_show_name</zorder>
+  <zorder>label_16</zorder>
+  <zorder>label_17</zorder>
+  <zorder>label_contact_no</zorder>
+  <zorder>label_profile</zorder>
+  <zorder>label_20</zorder>
+  <zorder>lineEdit_admin_name</zorder>
+  <zorder>label_19</zorder>
+  <zorder>lineEdit_gmail</zorder>
+  <zorder>lineEdit_contact_no</zorder>
+  <zorder>label_18</zorder>
+  <zorder>toolButton_set_image</zorder>
+  <zorder>label_15</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
