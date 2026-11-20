@@ -1,216 +1,423 @@
-# FinanceFlow AI — Day 27
+# FinanceFlow AI
 
-**Testing, Documentation & Deployment Preparation**  
-**Stack:** React + Vite + Axios · FastAPI · Pydantic v2 · SQLAlchemy 2 · SQLite / PostgreSQL
+> A Python full-stack financial management application for individuals and small businesses.
 
-FinanceFlow AI is a personal and small-business finance management project. The application brings transaction, budget, category, customer, and supplier workflows into one dashboard. This Day 27 version continues the Day 26 codebase and adds API-level tests, clearer documentation, deployment containers, a Docker Compose environment, and a CI workflow.
+FinanceFlow AI brings everyday financial record-keeping into one application. It provides a central place to manage transactions, budgets, categories, customers, and suppliers, with a dashboard for reviewing financial activity.
 
-> **Project status:** This is a learning and deployment-preparation build. Backend tests were run in the build environment. The frontend production build and a live deployment were not verified here. Authentication, workspace-level authorization, and production database migrations are still required before handling real financial data.
+---
 
-## What's included in Day 27
+## Table of Contents
 
-### Quality and testing
+- [Project Overview](#project-overview)
+- [Problem Statement](#problem-statement)
+- [Target Users](#target-users)
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [System Architecture](#system-architecture)
+- [Request and Data Flow](#request-and-data-flow)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [API Documentation](#api-documentation)
+- [Testing and Quality Checks](#testing-and-quality-checks)
+- [Deployment Preparation](#deployment-preparation)
+- [Known Limitations](#known-limitations)
+- [Roadmap](#roadmap)
+- [Development Workflow](#development-workflow)
 
-- Existing schema validation tests retained.
-- API tests added for health checks, category CRUD, transaction creation/search/filtering, invalid input, and missing records.
-- Isolated in-memory SQLite database used by API tests so test records do not touch the local development database.
-- GitHub Actions workflow added for backend tests and frontend build checks.
-- Corrected the frontend entry file's stray leading character and fixed the Nginx API proxy path.
-- Corrected the backend dependency file so each requirement is on its own line.
+---
 
-### Documentation
+## Project Overview
 
-- Expanded this README with setup, architecture, API, testing, deployment, and known limitations.
-- Added `docs/API_REFERENCE.md` for endpoint patterns, filters, sample payloads, and error formats.
-- Added `docs/ARCHITECTURE.md` for the request lifecycle and frontend navigation design.
-- Added `docs/DEPLOYMENT.md` for container deployment preparation and a production-readiness checklist.
-- Added `docs/SCREENSHOTS.md` with a checklist for capturing genuine application screenshots.
+FinanceFlow AI is designed to make financial activity easier to record, organize, and review. The application combines a React-based user interface with a FastAPI backend and a relational database.
 
-### Deployment preparation
+The project is developed as a full-stack application, with an emphasis on clear separation between the frontend, API layer, validation, database models, and persistence logic.
 
-- Backend Dockerfile using Python 3.12.
-- Frontend multi-stage Dockerfile using Node and Nginx.
-- Nginx configuration serving the React build and proxying API requests.
-- Docker Compose services for PostgreSQL, FastAPI, and the frontend.
-- `.env.example`, `.gitignore`, and `.dockerignore` files.
+## Problem Statement
 
-## Project structure
+Individuals and small business owners may keep track of income, expenses, budgets, customer credit, and supplier dues using notebooks or disconnected tools. This can make it harder to find historical records, review spending, and maintain a consistent view of financial activity.
+
+FinanceFlow AI aims to provide a centralized digital workspace for managing these records.
+
+## Target Users
+
+- **Individuals** who want to organize income, expenses, and budgets.
+- **Small retailers** who need to maintain transaction, customer, and supplier records.
+- **Small business owners** who want a consolidated view of routine financial activity.
+
+## Features
+
+### Dashboard and financial overview
+- Dashboard for reviewing key financial information.
+- Summary views based on the records available in the application.
+
+### Transaction management
+- Create, view, update, and delete transactions.
+- Search and filter transaction records.
+- Sort records by supported fields.
+- Export transaction data to CSV where available.
+
+### Budget and category management
+- Create and manage budgets.
+- Organize transactions using categories.
+- Review budget information and utilization views.
+
+### Customer and supplier management
+- Maintain customer records.
+- Maintain supplier records.
+- Organize business-related contact information.
+
+### Application experience
+- Responsive React interface.
+- Shared navigation and reusable UI elements.
+- Loading, empty, success, and error feedback in supported workflows.
+- Axios-based communication with the backend.
+
+> **Scope note:** Feature availability can vary by project version. Confirm each workflow in the running application before presenting it as fully verified.
+
+## Technology Stack
+
+| Layer | Technology | Responsibility |
+|---|---|---|
+| Frontend | React, Vite, JavaScript, CSS | User interface and client-side interactions |
+| HTTP client | Axios | Frontend-to-backend HTTP communication |
+| Backend | Python, FastAPI | REST API and request handling |
+| Validation | Pydantic | Request and response data validation |
+| ORM | SQLAlchemy | Relational database access |
+| Database | SQLite / PostgreSQL configuration | Persistent application data |
+| Testing | Pytest | Automated backend tests |
+| API specification | OpenAPI | Machine-readable API description |
+| Deployment preparation | Docker, Docker Compose, Nginx | Container and web-server configuration |
+| CI preparation | GitHub Actions | Automated workflow configuration |
+
+## System Architecture
+
+```mermaid
+flowchart TD
+    U[User] --> UI[React + Vite Frontend]
+    UI --> AX[Axios HTTP Client]
+    AX --> API[FastAPI Routes]
+    API --> VAL[Pydantic Validation]
+    VAL --> LOG[CRUD / Application Logic]
+    LOG --> ORM[SQLAlchemy ORM]
+    ORM --> DB[(SQLite / PostgreSQL)]
+    DB --> ORM
+    ORM --> LOG
+    LOG --> API
+    API --> AX
+    AX --> UI
+```
+
+### Architecture responsibilities
+
+1. **React frontend:** Renders pages, collects user input, and displays API results.
+2. **Axios client:** Sends HTTP requests and receives JSON responses.
+3. **FastAPI:** Exposes API endpoints and coordinates request handling.
+4. **Pydantic:** Validates incoming data and structures API schemas.
+5. **Application logic:** Executes create, read, update, delete, and query operations.
+6. **SQLAlchemy:** Maps Python models to relational database operations.
+7. **Database:** Persists application records.
+
+## Request and Data Flow
+
+A typical transaction creation flow works as follows:
+
+1. A user fills out the transaction form in the React application.
+2. The frontend sends the form data through Axios.
+3. FastAPI receives the HTTP request at the relevant route.
+4. Pydantic validates the request payload.
+5. Backend logic uses SQLAlchemy to write the record to the database.
+6. FastAPI returns a JSON response and an appropriate HTTP status code.
+7. React updates the interface and displays the result to the user.
+
+## Project Structure
+
+The backend is organized by application responsibility, while the frontend contains the React application and its reusable UI code. The exact filenames may differ between project revisions.
 
 ```text
-FinanceFlow_AI_Day27/
-├── .github/workflows/ci.yml
+FinanceFlow-AI/
 ├── backend/
 │   ├── app/
-│   │   ├── api/routes/       # HTTP endpoints
-│   │   ├── core/             # Settings and database session
-│   │   ├── models/           # SQLAlchemy entities
-│   │   ├── schemas/          # Pydantic request/response schemas
-│   │   ├── services/         # Reusable database operations
-│   │   └── main.py           # FastAPI application
-│   ├── tests/                # Schema and API tests
-│   ├── Dockerfile
-│   └── requirements.txt
+│   │   ├── main.py
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── routes/
+│   │   ├── services/       # or CRUD/application logic, by project revision
+│   │   └── ...
+│   ├── tests/
+│   ├── requirements.txt
+│   └── .env.example
 ├── frontend/
 │   ├── src/
-│   │   ├── App.jsx           # Main app shell and page components
-│   │   ├── api.js            # Shared Axios client and resource methods
-│   │   ├── main.jsx
-│   │   └── styles.css
-│   ├── Dockerfile
-│   └── nginx.conf
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── ...
+│   ├── package.json
+│   └── ...
 ├── docs/
-│   ├── API_REFERENCE.md
-│   ├── ARCHITECTURE.md
-│   ├── DEPLOYMENT.md
-│   └── SCREENSHOTS.md
-├── screenshots/              # Add real captures after running the app
-├── postman/
-├── docker-compose.yml
+│   ├── API_DOCUMENTATION.md
+│   └── BUG_LOG.md
+├── docker-compose.yml      # if included in the checked-out revision
 └── README.md
 ```
 
-## Run locally on Windows
+## Getting Started
 
-### 1. Backend
+### Prerequisites
 
-Open CMD in the `backend` directory:
+Install the following tools:
 
-```cmd
+- Python 3.10 or newer (use the version supported by the project's dependencies).
+- Node.js and npm.
+- Git.
+- SQLite for the default local setup, or PostgreSQL if configured.
+
+Docker is optional for local development unless you choose to use the container configuration.
+
+### 1. Clone the repository
+
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+cd FinanceFlow-AI
+```
+
+Replace `<YOUR_GITHUB_REPOSITORY_URL>` with the actual repository URL.
+
+### 2. Set up the backend
+
+Open a terminal in the backend directory:
+
+```bash
+cd backend
+
 python -m venv .venv
+```
+
+Activate the virtual environment.
+
+**Windows Command Prompt:**
+```cmd
 .venv\Scripts\activate
+```
+
+**Windows PowerShell:**
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux:**
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
+
+If the project includes `.env.example`, create a local environment file.
+
+**Windows Command Prompt:**
+```cmd
 copy .env.example .env
+```
+
+**macOS / Linux:**
+```bash
+cp .env.example .env
+```
+
+Review `.env` and set values appropriate for your local environment. Do not commit secrets.
+
+### 3. Set up the frontend
+
+Open a second terminal:
+
+```bash
+cd frontend
+npm install
+```
+
+## Running the Application
+
+### Start the backend
+
+From the `backend` directory, with the virtual environment activated:
+
+```bash
 python -m uvicorn app.main:app --reload
 ```
 
-SQLite is used by default. The database file is created locally in the backend directory. Docker is not required for this development mode.
+The backend is commonly available at:
 
-- API root: http://localhost:8000/
-- Health: http://localhost:8000/api/v1/health
-- Swagger UI: http://localhost:8000/docs
-- ReDoc: http://localhost:8000/redoc
-- OpenAPI JSON: http://localhost:8000/openapi.json
+- API base: `http://localhost:8000`
+- Interactive API documentation: `http://localhost:8000/docs`
+- Alternative API documentation: `http://localhost:8000/redoc`
 
-### 2. Frontend
+These addresses assume the default Uvicorn host and port.
 
-Open a second CMD window in the `frontend` directory:
-
-```cmd
-copy .env.example .env
-npm install
-npm run dev
-```
-
-Open http://localhost:5173. The local `.env` should contain:
-
-```env
-VITE_API_URL=http://localhost:8000/api/v1
-```
-
-Restart the Vite server after changing environment variables.
-
-## Run tests
-
-From the `backend` directory with the virtual environment active:
-
-```cmd
-python -m pytest -q
-```
-
-The Day 27 backend test suite contains **9 tests** across schema and API behavior. The API tests use a temporary in-memory SQLite database.
-
-## Build the frontend
+### Start the frontend
 
 From the `frontend` directory:
 
-```cmd
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite in your terminal. Ensure the frontend API base URL points to the backend address configured for your environment.
+
+## Configuration
+
+Use the environment example supplied with the project as the source of truth for supported settings.
+
+Typical configuration concerns include:
+
+- Database connection URL.
+- API host and port.
+- Frontend API base URL.
+- CORS allowed origins.
+- Environment mode.
+
+Do not paste production credentials, tokens, or private connection strings into source control. If a setting is not present in the checked-out `.env.example`, do not assume the application supports it without adding and testing the configuration.
+
+## API Documentation
+
+FastAPI generates an OpenAPI specification from the registered routes and schemas.
+
+When the backend is running, open:
+
+```text
+http://localhost:8000/docs
+```
+
+Use the interactive documentation to inspect available endpoints, request schemas, response schemas, and status codes.
+
+The API commonly groups operations around resources such as:
+
+- Transactions
+- Categories
+- Budgets
+- Customers
+- Suppliers
+- Health checks
+
+The exact route paths and supported methods are defined by the backend code and generated OpenAPI document. Refer to those sources rather than relying on guessed endpoint URLs.
+
+## Testing and Quality Checks
+
+### Backend tests
+
+From the backend directory:
+
+```bash
+python -m pytest -q
+```
+
+Run the tests before committing backend changes. A passing test suite is evidence for the cases covered by those tests; it does not prove that every application workflow is bug-free.
+
+### Frontend production build
+
+From the frontend directory:
+
+```bash
 npm install
 npm run build
 ```
 
-Vite writes the production bundle to `frontend/dist/`. This build command should be run locally and in CI before submitting a release.
+If the project defines a lint or test script, run it using the matching command shown in `frontend/package.json`.
 
-## Docker Compose deployment rehearsal
+### Manual application checks
 
-Install Docker Desktop, then run these commands from the project root:
+Before a demonstration or release, verify:
 
-```cmd
-copy .env.example .env
-```
+- Dashboard loads without unexpected errors.
+- Transaction create, view, update, and delete workflows.
+- Transaction search, filters, sorting, and CSV export, if enabled.
+- Budget and category workflows.
+- Customer and supplier workflows.
+- Validation messages for invalid form input.
+- Loading, empty, and error states.
+- Responsive layout and navigation.
+- Frontend-to-backend connectivity.
 
-Edit `.env` and replace `POSTGRES_PASSWORD` with a strong local password. Then:
+Record defects and their reproduction steps in the project's bug log.
 
-```cmd
-docker compose up --build
-```
+## Deployment Preparation
 
-Open http://localhost:8080. Nginx serves the built frontend and forwards `/api/` requests to FastAPI. PostgreSQL data is stored in the named Docker volume `financeflow_data`.
+The project may include Dockerfiles, Docker Compose, Nginx configuration, and a GitHub Actions workflow for deployment preparation and automated checks.
 
-Stop the services:
+Before using these configurations for a real deployment:
 
-```cmd
-docker compose down
-```
+1. Review the Docker build contexts and environment variables.
+2. Configure a production database and run database migrations.
+3. Set secure secrets outside the repository.
+4. Configure allowed origins and HTTPS.
+5. Verify Nginx routing and API proxy behavior.
+6. Run backend tests and the frontend production build.
+7. Test the deployed application using non-production data first.
+8. Configure backups, logs, monitoring, and an operational recovery plan.
 
-To delete the local database volume as well (destructive):
+Deployment configuration being present in the repository does not by itself mean the application has been deployed or production-validated.
 
-```cmd
-docker compose down -v
-```
+## Known Limitations
 
-See [Deployment Preparation](docs/DEPLOYMENT.md) before using any hosted environment.
+The following items should be checked against the current implementation and treated as future work unless they have been implemented and tested:
 
-## API overview
+- Secure user authentication and authorization.
+- Workspace-level data isolation for multiple users or businesses.
+- Alembic-based database migrations.
+- Auditable ledger entries as the source of truth for customer and supplier balances.
+- Production monitoring, backup, and recovery procedures.
+- Additional integration and end-to-end tests.
+- AI-generated insights connected to authorized data and deterministic financial calculations.
 
-All versioned endpoints use `/api/v1`.
+Financial totals and balances should be computed by deterministic backend logic. An AI assistant, if added, should not invent or independently calculate authoritative financial figures.
 
-| Resource | Supported operations |
-|---|---|
-| `/categories` | List, create, retrieve, update, delete |
-| `/transactions` | List, create, retrieve, update, delete; search and filters |
-| `/customers` | List, create, retrieve, update, delete |
-| `/suppliers` | List, create, retrieve, update, delete |
-| `/budgets` | List, create, retrieve, update, delete |
+## Roadmap
 
-Transaction list filters include `q`, `type`, `start_date`, `end_date`, `sort`, `skip`, and `limit`. Refer to [API Reference](docs/API_REFERENCE.md) or `/docs` for full details.
+- [ ] Complete final regression testing across all modules.
+- [ ] Add authentication and role-based authorization.
+- [ ] Add workspace-level tenant isolation.
+- [ ] Introduce Alembic migrations.
+- [ ] Implement ledger-based customer and supplier balances.
+- [ ] Expand automated API and frontend tests.
+- [ ] Add production monitoring and backup procedures.
+- [ ] Extend AI-assisted insights with controlled, read-only access to verified financial data.
 
-## Architecture at a glance
+## Development Workflow
 
-1. React page components collect user input and display data.
-2. The shared Axios client sends requests to FastAPI.
-3. FastAPI validates requests with Pydantic schemas.
-4. Route handlers use SQLAlchemy sessions and CRUD services.
-5. SQLAlchemy reads and writes SQLite locally or PostgreSQL in the Docker setup.
-6. Structured API responses and errors are reflected in the frontend.
+A suggested workflow for contributors:
 
-The current UI is a single-page application with page selection managed in `App.jsx`; it does not yet use a dedicated URL router. See [Architecture](docs/ARCHITECTURE.md).
+1. Create a focused branch for the change.
+2. Make the smallest clear implementation that solves the task.
+3. Add or update tests for the behavior.
+4. Run backend tests and frontend checks.
+5. Review the diff for secrets, debug code, and unrelated changes.
+6. Update documentation when behavior or configuration changes.
+7. Commit with a descriptive message and open a pull request.
 
-## Screenshots
+Example:
 
-The `screenshots/` directory is intentionally supplied for genuine captures from your local run. Follow [Screenshot Evidence Guide](docs/SCREENSHOTS.md). No fabricated application screenshots are included.
-
-## Known limitations and next engineering steps
-
-- Authentication and server-side authorization are not implemented.
-- The workspace selector is a UI-level concept only; it does not isolate user data.
-- `Base.metadata.create_all()` is used for convenient local setup. Add Alembic migrations before deploying schema changes.
-- The AI Insights page is deterministic/demo content, not a connected LLM agent.
-- Customer and supplier balances are not yet ledger-derived.
-- Add integration tests for every resource and regression tests for the full frontend workflows.
-- Configure TLS, backups, monitoring, rate limits, and managed secrets before public deployment.
-
-Do not use real customer, supplier, or bank data in this training build.
-
-## Day 27 GitHub submission
-
-From the project root:
-
-```cmd
-git status
+```bash
+git checkout -b feature/transaction-improvements
 git add .
-git commit -m "Day 27: add tests, API docs and deployment preparation"
-git push
+git commit -m "Improve transaction management"
+git push -u origin feature/transaction-improvements
 ```
 
-GitHub is not updated automatically by generating this archive. Run the commands above in your own repository after reviewing the changes.
+---
+
+## Project Status
+
+**Project:** FinanceFlow AI  
+**Type:** Python Full-Stack Financial Management Application  
+**Purpose:** Internship / learning project and demonstration of full-stack engineering concepts
+
+For evaluation, use the checked-out repository, passing test output, API documentation, and a live demonstration as evidence of the current implementation status.
+
+---
+
+*Built as a full-stack learning project. Review the security, data integrity, and deployment requirements carefully before using real financial or customer data.*
